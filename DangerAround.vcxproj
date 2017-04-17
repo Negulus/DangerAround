@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1b0514da-b6c3-4c9a-b8c8-55a52d691f38}</ProjectGuid>
+    <RootNamespace>DangerAround</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <XapOutputs>true</XapOutputs>
+    <XapFilename>DangerAround_$(Configuration)_$(Platform).xap</XapFilename>
+    <WinMDAssembly>true</WinMDAssembly>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\MeshContentTask.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>PSAPI_VERSION=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>DirectXTK\Inc;$(ProjectDir);$(IntermediateOutputPath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAsWinRT>true</CompileAsWinRT>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>d3d11.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <IgnoreSpecificDefaultLibraries>ole32.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>
+      </ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>PSAPI_VERSION=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>DirectXTK\Inc;DirectXTK\Src;$(ProjectDir);$(IntermediateOutputPath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>d3d11.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <IgnoreSpecificDefaultLibraries>ole32.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>true</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <PreprocessorDefinitions>PSAPI_VERSION=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>DirectXTK\Inc;$(ProjectDir);$(IntermediateOutputPath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAsWinRT>true</CompileAsWinRT>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>d3d11.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <IgnoreSpecificDefaultLibraries>ole32.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <PreprocessorDefinitions>PSAPI_VERSION=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>DirectXTK\Inc;$(ProjectDir);$(IntermediateOutputPath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAsWinRT>true</CompileAsWinRT>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>d3d11.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <IgnoreSpecificDefaultLibraries>ole32.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Image Include="Assets\ApplicationIcon.png" />
+    <Image Include="Assets\AlignmentGrid.png" />
+    <Image Include="Assets\Tiles\FlipCycleTileLarge.png" />
+    <Image Include="Assets\Tiles\FlipCycleTileMedium.png" />
+    <Image Include="Assets\Tiles\FlipCycleTileSmall.png" />
+    <Image Include="Assets\Tiles\IconicTileMediumLarge.png" />
+    <Image Include="Assets\Tiles\IconicTileSmall.png" />
+    <Image Include="Images\Other\blood_0.dds" />
+    <Image Include="Images\Other\blood_1.dds" />
+    <Image Include="Images\Other\blood_2.dds" />
+    <Image Include="Images\Other\blood_3.dds" />
+    <Image Include="Images\Other\blood_4.dds" />
+    <Image Include="Images\Other\glass_0.dds" />
+    <Image Include="Images\Other\glass_1.dds" />
+    <Image Include="Images\Other\glass_2.dds" />
+    <Image Include="Images\Other\glass_3.dds" />
+    <Image Include="Images\Other\glass_4.dds" />
+    <Image Include="Images\Other\hud_bottom.dds" />
+    <Image Include="Images\Other\hud_but_pause.dds" />
+    <Image Include="Images\Other\hud_life.dds" />
+    <Image Include="Images\Other\hud_top.dds" />
+    <Image Include="Images\Other\hud_top_time.dds" />
+    <Image Include="Images\Other\level_dig_0.dds" />
+    <Image Include="Images\Other\level_dig_1.dds" />
+    <Image Include="Images\Other\level_dig_2.dds" />
+    <Image Include="Images\Other\level_dig_3.dds" />
+    <Image Include="Images\Other\level_dig_4.dds" />
+    <Image Include="Images\Other\level_dig_5.dds" />
+    <Image Include="Images\Other\level_dig_6.dds" />
+    <Image Include="Images\Other\level_dig_7.dds" />
+    <Image Include="Images\Other\level_dig_8.dds" />
+    <Image Include="Images\Other\level_dig_9.dds" />
+    <Image Include="Images\Other\loading.dds" />
+    <Image Include="Images\Other\menu_cal_but_cancel.dds" />
+    <Image Include="Images\Other\menu_cal_but_ok.dds" />
+    <Image Include="Images\Other\menu_cal_but_reset.dds" />
+    <Image Include="Images\Other\menu_cal_point.dds" />
+    <Image Include="Images\Other\menu_cal_scale.dds" />
+    <Image Include="Images\Other\menu_game_bg_classic.dds" />
+    <Image Include="Images\Other\menu_game_bg_lose.dds" />
+    <Image Include="Images\Other\menu_game_bg_pause.dds" />
+    <Image Include="Images\Other\menu_game_bg_surv.dds" />
+    <Image Include="Images\Other\menu_game_bg_win.dds" />
+    <Image Include="Images\Other\menu_game_but_exit.dds" />
+    <Image Include="Images\Other\menu_game_but_next.dds" />
+    <Image Include="Images\Other\menu_game_but_restart.dds" />
+    <Image Include="Images\Other\menu_game_but_resume.dds" />
+    <Image Include="Images\Other\menu_game_dig_0.dds" />
+    <Image Include="Images\Other\menu_game_dig_1.dds" />
+    <Image Include="Images\Other\menu_game_dig_2.dds" />
+    <Image Include="Images\Other\menu_game_dig_3.dds" />
+    <Image Include="Images\Other\menu_game_dig_4.dds" />
+    <Image Include="Images\Other\menu_game_dig_5.dds" />
+    <Image Include="Images\Other\menu_game_dig_6.dds" />
+    <Image Include="Images\Other\menu_game_dig_7.dds" />
+    <Image Include="Images\Other\menu_game_dig_8.dds" />
+    <Image Include="Images\Other\menu_game_dig_9.dds" />
+    <Image Include="Images\Other\menu_game_dig_big_0.dds" />
+    <Image Include="Images\Other\menu_game_dig_big_1.dds" />
+    <Image Include="Images\Other\menu_game_dig_big_2.dds" />
+    <Image Include="Images\Other\menu_game_dig_big_3.dds" />
+    <Image Include="Images\Other\menu_game_dig_big_4.dds" />
+    <Image Include="Images\Other\menu_game_dig_big_5.dds" />
+    <Image Include="Images\Other\menu_game_dig_big_6.dds" />
+    <Image Include="Images\Other\menu_game_dig_big_7.dds" />
+    <Image Include="Images\Other\menu_game_dig_big_8.dds" />
+    <Image Include="Images\Other\menu_game_dig_big_9.dds" />
+    <Image Include="Images\Other\menu_help.dds" />
+    <Image Include="Images\Other\menu_main_but_classic.dds" />
+    <Image Include="Images\Other\menu_main_but_help.dds" />
+    <Image Include="Images\Other\menu_main_but_set.dds" />
+    <Image Include="Images\Other\menu_main_but_surv.dds" />
+    <Image Include="Images\Other\menu_main_but_time.dds" />
+    <Image Include="Images\Other\menu_sel_but_start.dds" />
+    <Image Include="Images\Other\menu_sel_level_0.dds" />
+    <Image Include="Images\Other\menu_sel_level_1.dds" />
+    <Image Include="Images\Other\menu_sel_level_2.dds" />
+    <Image Include="Images\Other\menu_sel_level_3.dds" />
+    <Image Include="Images\Other\menu_sel_level_4.dds" />
+    <Image Include="Images\Other\menu_sel_level_5.dds" />
+    <Image Include="Images\Other\menu_sel_level_6.dds" />
+    <Image Include="Images\Other\menu_sel_level_7.dds" />
+    <Image Include="Images\Other\menu_sel_level_8.dds" />
+    <Image Include="Images\Other\menu_sel_level_9.dds" />
+    <Image Include="Images\Other\menu_sel_level_bg.dds" />
+    <Image Include="Images\Other\menu_sel_level_sel_bg.dds" />
+    <Image Include="Images\Other\menu_sel_map_bg.dds" />
+    <Image Include="Images\Other\menu_sel_map_forest.dds" />
+    <Image Include="Images\Other\menu_sel_map_sel_bg.dds" />
+    <Image Include="Images\Other\menu_sel_map_space.dds" />
+    <Image Include="Images\Other\menu_sel_map_volcano.dds" />
+    <Image Include="Images\Other\menu_sel_rec_0.dds" />
+    <Image Include="Images\Other\menu_sel_rec_1.dds" />
+    <Image Include="Images\Other\menu_sel_rec_2.dds" />
+    <Image Include="Images\Other\menu_sel_rec_3.dds" />
+    <Image Include="Images\Other\menu_sel_rec_4.dds" />
+    <Image Include="Images\Other\menu_sel_rec_5.dds" />
+    <Image Include="Images\Other\menu_sel_rec_6.dds" />
+    <Image Include="Images\Other\menu_sel_rec_7.dds" />
+    <Image Include="Images\Other\menu_sel_rec_8.dds" />
+    <Image Include="Images\Other\menu_sel_rec_9.dds" />
+    <Image Include="Images\Other\menu_sel_rec_bg_classic.dds" />
+    <Image Include="Images\Other\menu_sel_rec_bg_surv.dds" />
+    <Image Include="Images\Other\menu_sel_rec_bg_time.dds" />
+    <Image Include="Images\Other\menu_set_but_cal.dds" />
+    <Image Include="Images\Other\menu_set_sound_bg.dds" />
+    <Image Include="Images\Other\menu_set_sound_check.dds" />
+    <Image Include="Images\Other\score.dds" />
+    <Image Include="Images\Other\score_0.dds" />
+    <Image Include="Images\Other\score_1.dds" />
+    <Image Include="Images\Other\score_2.dds" />
+    <Image Include="Images\Other\score_3.dds" />
+    <Image Include="Images\Other\score_4.dds" />
+    <Image Include="Images\Other\score_5.dds" />
+    <Image Include="Images\Other\score_6.dds" />
+    <Image Include="Images\Other\score_7.dds" />
+    <Image Include="Images\Other\score_8.dds" />
+    <Image Include="Images\Other\score_9.dds" />
+    <Image Include="Images\Textures\arrow.dds" />
+    <Image Include="Images\Textures\asteroid_0.dds" />
+    <Image Include="Images\Textures\asteroid_2.dds" />
+    <Image Include="Images\Textures\bush_01.dds" />
+    <Image Include="Images\Textures\bush_02.dds" />
+    <Image Include="Images\Textures\bush_04.dds" />
+    <Image Include="Images\Textures\bush_06.dds" />
+    <Image Include="Images\Textures\bush_07.dds" />
+    <Image Include="Images\Textures\enemy_1.dds" />
+    <Image Include="Images\Textures\enemy_2.dds" />
+    <Image Include="Images\Textures\enemy_3.dds" />
+    <Image Include="Images\Textures\enemy_4.dds" />
+    <Image Include="Images\Textures\level_forest.dds" />
+    <Image Include="Images\Textures\map.dds" />
+    <Image Include="Images\Textures\menu_wire.dds" />
+    <Image Include="Images\Textures\Planet.dds" />
+    <Image Include="Images\Textures\Satellite.dds" />
+    <Image Include="Images\Textures\shield.dds" />
+    <Image Include="Images\Textures\space.dds" />
+    <Image Include="Images\Textures\sparks_0.dds" />
+    <Image Include="Images\Textures\sparks_1.dds" />
+    <Image Include="Images\Textures\Star.dds" />
+    <Image Include="Images\Textures\Star_1.dds" />
+    <Image Include="Images\Textures\stone.dds" />
+    <Image Include="Images\Textures\tex.dds" />
+    <Image Include="Images\Textures\tree_01.dds" />
+    <Image Include="Images\Textures\tree_03.dds" />
+    <Image Include="Images\Textures\tree_05.dds" />
+    <Image Include="Images\Textures\tree_08.dds" />
+    <Image Include="Images\Textures\tree_11.dds" />
+    <Image Include="Images\Textures\tree_14.dds" />
+    <Image Include="Images\Textures\tree_17.dds" />
+    <Image Include="Images\Textures\tree_19.dds" />
+    <Image Include="Images\Textures\tree_21.dds" />
+    <Image Include="Images\Textures\wire_blue.dds" />
+    <Image Include="Images\Textures\wire_gray.dds" />
+    <Image Include="Images\Textures\wire_green.dds" />
+    <Image Include="Images\Textures\wire_red.dds" />
+    <Image Include="Images\Textures\wire_red_b.dds" />
+    <Image Include="Images\Textures\wire_yellow.dds" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DangerAround.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="DirectXHelper.h" />
+    <ClInclude Include="Direct3DBase.h" />
+    <ClInclude Include="BasicTimer.h" />
+    <ClInclude Include="GameData.h" />
+    <ClInclude Include="GameHUD.h" />
+    <ClInclude Include="GamePlay.h" />
+    <ClInclude Include="GameRoot.h" />
+    <ClInclude Include="Map_Forest.h" />
+    <ClInclude Include="Map_Space.h" />
+    <ClInclude Include="MenuCal.h" />
+    <ClInclude Include="MenuGame.h" />
+    <ClInclude Include="MenuMain.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Scr2D.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DangerAround.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Direct3DBase.cpp" />
+    <ClCompile Include="GameHUD.cpp" />
+    <ClCompile Include="GamePlay.cpp" />
+    <ClCompile Include="GameRoot.cpp" />
+    <ClCompile Include="Map_Forest.cpp" />
+    <ClCompile Include="Map_Space.cpp" />
+    <ClCompile Include="MenuCal.cpp" />
+    <ClCompile Include="MenuGame.cpp" />
+    <ClCompile Include="MenuMain.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Scr2D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Models\2d_blood.FBX" />
+    <MeshContentTask Include="Models\2d_blood_w.FBX" />
+    <MeshContentTask Include="Models\2d_level_dig_0.FBX" />
+    <MeshContentTask Include="Models\2d_level_dig_1.FBX" />
+    <MeshContentTask Include="Models\2d_level_dig_2.FBX" />
+    <MeshContentTask Include="Models\2d_level_dig_3.FBX" />
+    <MeshContentTask Include="Models\2d_level_dig_4.FBX" />
+    <MeshContentTask Include="Models\2d_level_dig_5.FBX" />
+    <MeshContentTask Include="Models\2d_level_dig_6.FBX" />
+    <MeshContentTask Include="Models\2d_level_dig_7.FBX" />
+    <MeshContentTask Include="Models\2d_level_dig_8.FBX" />
+    <MeshContentTask Include="Models\2d_level_dig_9.FBX" />
+    <MeshContentTask Include="Models\arrow.FBX" />
+    <MeshContentTask Include="Models\asteroid_0.FBX" />
+    <MeshContentTask Include="Models\asteroid_2.FBX" />
+    <MeshContentTask Include="Models\compass.FBX" />
+    <MeshContentTask Include="Models\enemy_1.FBX" />
+    <MeshContentTask Include="Models\enemy_2.FBX" />
+    <MeshContentTask Include="Models\enemy_3.FBX" />
+    <MeshContentTask Include="Models\enemy_4.FBX" />
+    <MeshContentTask Include="Models\level_forest_b.FBX" />
+    <MeshContentTask Include="Models\level_forest_f.FBX" />
+    <MeshContentTask Include="Models\level_forest_n1.FBX" />
+    <MeshContentTask Include="Models\level_forest_n2.FBX" />
+    <MeshContentTask Include="Models\level_forest_n3.FBX" />
+    <MeshContentTask Include="Models\level_space_b.fbx" />
+    <MeshContentTask Include="Models\level_space_p.fbx" />
+    <MeshContentTask Include="Models\level_space_s.fbx" />
+    <MeshContentTask Include="Models\level_space_st.fbx" />
+    <MeshContentTask Include="Models\level_space_st1.fbx" />
+    <MeshContentTask Include="Models\map_120.FBX" />
+    <MeshContentTask Include="Models\map_180.FBX" />
+    <MeshContentTask Include="Models\map_270.FBX" />
+    <MeshContentTask Include="Models\map_360.FBX" />
+    <MeshContentTask Include="Models\map_45.FBX" />
+    <MeshContentTask Include="Models\map_90.FBX" />
+    <MeshContentTask Include="Models\menu_bg.FBX" />
+    <MeshContentTask Include="Models\menu_cal.FBX" />
+    <MeshContentTask Include="Models\menu_cal_deg_120.FBX" />
+    <MeshContentTask Include="Models\menu_cal_deg_180.FBX" />
+    <MeshContentTask Include="Models\menu_cal_deg_270.FBX" />
+    <MeshContentTask Include="Models\menu_cal_deg_360.FBX" />
+    <MeshContentTask Include="Models\menu_cal_deg_45.FBX" />
+    <MeshContentTask Include="Models\menu_cal_deg_90.FBX" />
+    <MeshContentTask Include="Models\pot.FBX">
+      <FileType>Document</FileType>
+    </MeshContentTask>
+    <MeshContentTask Include="Models\shield.FBX" />
+    <MeshContentTask Include="Models\sparks_0.FBX" />
+    <MeshContentTask Include="Models\sparks_1.FBX" />
+    <MeshContentTask Include="Models\stone.FBX" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Audio\click.wav" />
+    <Media Include="Audio\level_forest_ambient.wav" />
+    <Media Include="Audio\level_forest_enemy_die.wav" />
+    <Media Include="Audio\level_forest_hit.wav" />
+    <Media Include="Audio\level_forest_obj_arrow.wav" />
+    <Media Include="Audio\level_forest_obj_stone.wav" />
+    <Media Include="Audio\level_forest_other_0.wav" />
+    <Media Include="Audio\level_forest_other_1.wav" />
+    <Media Include="Audio\level_forest_other_2.wav" />
+    <Media Include="Audio\level_forest_other_3.wav" />
+    <Media Include="Audio\level_forest_other_4.wav" />
+    <Media Include="Audio\level_forest_other_5.wav" />
+    <Media Include="Audio\level_forest_other_6.wav" />
+    <Media Include="Audio\level_forest_shield.wav" />
+    <Media Include="Audio\level_space_ambient.wav" />
+    <Media Include="Audio\level_space_hit.wav" />
+    <Media Include="Audio\level_space_obj_stone.wav" />
+    <Media Include="Audio\level_space_other_0.wav" />
+    <Media Include="Audio\level_space_other_1.wav" />
+    <Media Include="Audio\level_space_other_2.wav" />
+    <Media Include="Audio\level_space_other_3.wav" />
+    <Media Include="Audio\level_space_other_4.wav" />
+    <Media Include="Audio\level_space_other_5.wav" />
+    <Media Include="Audio\level_space_shield.wav" />
+    <Media Include="Audio\lose.wav" />
+    <Media Include="Audio\pause.wav" />
+    <Media Include="Audio\surv.wav" />
+    <Media Include="Audio\win.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="platform">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\WPSDK\WP80\lib\platform.winmd</HintPath>
+      <IsWinMDFile>true</IsWinMDFile>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="DirectXTK\DirectXTK_WindowsPhone8.vcxproj">
+      <Project>{e0b52ae7-e160-4d32-bf3f-910b785e5a8e}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsPhone\v$(TargetPlatformVersion)\Microsoft.Cpp.WindowsPhone.$(TargetPlatformVersion).targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\MeshContentTask.targets" />
+  </ImportGroup>
+</Project>
